@@ -36,6 +36,10 @@ config/name="Game Meteorite"
 run/main_scene="res://Game/Levels/LevelTest.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://Game/AutoLoads/Events.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

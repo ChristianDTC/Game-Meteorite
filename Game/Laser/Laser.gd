@@ -12,6 +12,7 @@ func create(pos: Vector2, dir: float, vel:float, damage_p:int) -> void:
 	position = pos
 	rotation = dir
 	velocity = Vector2(vel,0).rotated(dir)
+	damage = damage_p
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta

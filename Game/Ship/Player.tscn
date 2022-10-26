@@ -33,6 +33,4 @@ position = Vector2( -45, 0 )
 [node name="PositionRight" parent="Muzzle" index="1"]
 position = Vector2( 45, 0 )
 
-[connection signal="timeout" from="Muzzle/TimerCooling" to="Muzzle" method="_on_TimerCooling_timeout"]
-
 [editable path="Muzzle"]

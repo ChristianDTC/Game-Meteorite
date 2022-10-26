@@ -30,6 +30,7 @@ func _ready() -> void:
 	store_points_shot()
 	timer_cooling.wait_time = timing_shot
 
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	if is_shoting and is_cooling:
 		shot()
@@ -51,8 +52,8 @@ func shot() -> void:
 			get_owner().rotation,
 			velocity_laser,
 			damage_laser
-		)
-	print("piw")
+			)
+		Events.emit_signal("shot", new_laser)
 
 func _on_TimerCooling_timeout() -> void:
 	is_cooling = true
