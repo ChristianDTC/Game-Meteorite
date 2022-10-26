@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Laser/Muzzle.gd" type="Script" id=1]
+[ext_resource path="res://Game/Laser/Laser.tscn" type="PackedScene" id=2]
+
+[node name="Muzzle" type="Node2D"]
+script = ExtResource( 1 )
+laser = ExtResource( 2 )
+
+[node name="PositionLeft" type="Position2D" parent="."]
+
+[node name="PositionRight" type="Position2D" parent="."]
+
+[node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="TimerCooling" type="Timer" parent="."]
