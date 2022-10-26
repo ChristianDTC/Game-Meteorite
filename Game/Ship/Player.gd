@@ -14,6 +14,7 @@ var direction_rotation:int = 0
 
 # Metodos
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	apply_central_impulse(push.rotated(rotation))
 	apply_torque_impulse(direction_rotation * power_rotation)
 
 func _process(delta: float) -> void:
