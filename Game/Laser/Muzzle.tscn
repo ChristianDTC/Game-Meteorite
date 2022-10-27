@@ -4,8 +4,11 @@
 [ext_resource path="res://Game/Laser/Laser.tscn" type="PackedScene" id=2]
 
 [node name="Muzzle" type="Node2D"]
+scale = Vector2( 0.579135, 0.618845 )
 script = ExtResource( 1 )
 laser = ExtResource( 2 )
+timing_shot = 0.3
+velocity_laser = 1600
 
 [node name="PositionLeft" type="Position2D" parent="."]
 

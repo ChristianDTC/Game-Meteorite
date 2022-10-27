@@ -16,3 +16,7 @@ func create(pos: Vector2, dir: float, vel:float, damage_p:int) -> void:
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	queue_free()
