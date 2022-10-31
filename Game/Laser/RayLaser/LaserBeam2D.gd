@@ -2,7 +2,7 @@
 # Use `is_casting` to make the laser fire and stop.
 # You can attach it to a weapon or a ship; the laser will rotate with its parent.
 # RAYO LASER
-class_name = LaserBeam2D
+class_name LaserBeam2D
 extends RayCast2D
 
 # Speed at which the laser extends when first fired, in pixels per seconds.
