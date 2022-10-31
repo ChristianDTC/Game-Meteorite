@@ -43,9 +43,9 @@ func store_points_shot() -> void:
 
 func shot() -> void:
 	is_cooling = false
-	shot_sfx.play()
 	timer_cooling.start()
 	for point_shoting in points_shoting:
+		shot_sfx.play()
 		var new_laser:Laser = laser.instance()
 		new_laser.create(
 			point_shoting.global_position,

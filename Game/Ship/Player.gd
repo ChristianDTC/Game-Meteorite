@@ -14,6 +14,7 @@ var direction_rotation:int = 0
 
 # ATRIBUTOS ONREADY
 onready var muzzle:Muzzle = $Muzzle
+onready var laser_beam:LaserBeam2D = $LaserBeam2D
 
 # METODOS
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:

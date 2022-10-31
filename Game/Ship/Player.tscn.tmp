@@ -45,6 +45,6 @@ stream = ExtResource( 5 )
 bus = "SFX"
 
 [node name="LaserBeam2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 21, 0 )
+position = Vector2( 24, 0 )
 
 [editable path="Muzzle"]
