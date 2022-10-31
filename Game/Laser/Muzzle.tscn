@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Laser/Muzzle.gd" type="Script" id=1]
+[ext_resource path="res://Game/Laser/Laser.tscn" type="PackedScene" id=2]
+
+[node name="Muzzle" type="Node2D"]
+scale = Vector2( 0.579135, 0.618845 )
+script = ExtResource( 1 )
+laser = ExtResource( 2 )
+timing_shot = 0.3
+velocity_laser = 1600
+
+[node name="PositionLeft" type="Position2D" parent="."]
+
+[node name="PositionRight" type="Position2D" parent="."]
+
+[node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="TimerCooling" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerCooling" to="." method="_on_TimerCooling_timeout"]
