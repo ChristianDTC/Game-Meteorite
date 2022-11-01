@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Game/Ship/Player.gd"
+}, {
+"base": "Line2D",
+"class": "Trail",
+"language": "GDScript",
+"path": "res://Game/Ship/Trail/Trail2D.gd"
 } ]
 _global_script_class_icons={
 "Laser": "",
 "LaserBeam2D": "",
 "Level": "",
 "Muzzle": "",
-"Player": ""
+"Player": "",
+"Trail": ""
 }
 
 [application]
