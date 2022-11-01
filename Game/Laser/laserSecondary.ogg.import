@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laserSecondary.ogg-9e150d316825738c3b2499641d7a729c.oggstr"
+
+[deps]
+
+source_file="res://Game/Laser/laserSecondary.ogg"
+dest_files=[ "res://.import/laserSecondary.ogg-9e150d316825738c3b2499641d7a729c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

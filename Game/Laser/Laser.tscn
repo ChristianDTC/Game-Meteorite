@@ -6,6 +6,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Laser" type="Area2D"]
+modulate = Color( 0, 1.48627, 2, 1 )
+position = Vector2( -2, 0 )
 scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 2 )
 

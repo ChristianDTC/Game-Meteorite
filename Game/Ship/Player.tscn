@@ -21,7 +21,6 @@ power_engine = 5
 power_rotation = 100
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0.921569, 0, 1 )
 rotation = 1.5708
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )
@@ -33,6 +32,7 @@ shape = SubResource( 1 )
 
 [node name="Muzzle" parent="." instance=ExtResource( 4 )]
 rotation = 1.5708
+velocity_laser = 800
 
 [node name="PositionLeft" parent="Muzzle" index="0"]
 position = Vector2( -45, 0 )
@@ -42,9 +42,10 @@ position = Vector2( 45, 0 )
 
 [node name="ShotSFX" parent="Muzzle" index="2"]
 stream = ExtResource( 5 )
+volume_db = -30.0
 bus = "SFX"
 
 [node name="LaserBeam2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 21, 0 )
+position = Vector2( 25, 0 )
 
 [editable path="Muzzle"]

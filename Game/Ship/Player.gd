@@ -17,6 +17,13 @@ onready var muzzle:Muzzle = $Muzzle
 onready var laser_beam:LaserBeam2D = $LaserBeam2D
 
 # METODOS
+func _unhandled_input(event: InputEvent) -> void:
+	#DISPARO RAYO
+	if event.is_action_pressed("shot_secondary"):
+		laser_beam.set_is_casting(true)
+	if event.is_action_released("shot_secondary"):
+		laser_beam.set_is_casting(false)
+	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(push.rotated(rotation))
 	apply_torque_impulse(direction_rotation * power_rotation)
