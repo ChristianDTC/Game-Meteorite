@@ -4,8 +4,8 @@ extends Node2D
 
 # ATRIBUTO EXPORT
 export var laser:PackedScene = null
-export var timing_shot:float = 0.8
-export var velocity_laser:int = 100
+export var timing_shot:float = 0.3
+export var velocity_laser:int = 1600
 export var damage_laser = 1
 
 
