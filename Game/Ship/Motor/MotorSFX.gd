@@ -3,7 +3,7 @@ class_name Motor
 extends AudioStreamPlayer2D
 
 
-export var time_transition:float = 0.3
+export var time_transition:float = 0.6
 export var volume_off:float = 8.0
 
 onready var tween_sound:Tween = $Tween

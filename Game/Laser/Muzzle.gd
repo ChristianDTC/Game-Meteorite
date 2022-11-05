@@ -14,6 +14,8 @@ onready var timer_cooling:Timer = $TimerCooling
 onready var shot_sfx: AudioStreamPlayer2D = $ShotSFX
 onready var is_cooling:bool = true
 onready var is_shoting:bool = false setget set_is_shoting
+onready var can_shot:bool = false setget set_can_shot
+
 
 
 # ATRIBUTOS
@@ -21,6 +23,9 @@ var points_shoting:Array = []
 
 
 # SETTERS Y GETTERS
+func set_can_shot(owner_can: bool) -> void: #dueño puede
+	can_shot = owner_can
+
 func set_is_shoting(shoting:bool) -> void:
 	is_shoting = shoting
 
