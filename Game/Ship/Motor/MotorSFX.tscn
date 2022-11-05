@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Ship/Motor/MotorSFX.gd" type="Script" id=1]
+[ext_resource path="res://Game/Ship/Motor/trailFire.ogg" type="AudioStream" id=2]
+
+[node name="MotorSFX" type="AudioStreamPlayer2D"]
+z_as_relative = false
+stream = ExtResource( 2 )
+volume_db = -35.303
+bus = "Motor"
+area_mask = 0
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]

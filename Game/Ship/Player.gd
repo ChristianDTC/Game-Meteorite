@@ -17,6 +17,7 @@ var direction_rotation:int = 0
 onready var muzzle:Muzzle = $Muzzle
 onready var laser_beam:LaserBeam2D = $LaserBeam2D
 onready var trail:Trail = $TrainPoint/Trail2D
+onready var motor_sfx:Motor = $MotorSFX
 
 # METODOS
 func _unhandled_input(event: InputEvent) -> void:
@@ -26,12 +27,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shot_secondary"):
 		laser_beam.set_is_casting(false)
 	
-	#CONTROL ESTELA
+	#CONTROL ESTELA Y SONIDO
 	if event.is_action_pressed("move_up"):
 		trail.set_max_points(trail_max)
+		motor_sfx.sound_off()
 	elif event.is_action_pressed("move_down"):
 		trail.set_max_points(0)
-	
+		motor_sfx.sound_off()
+	if (event.is_action_released("move_up") or event.is_action_released("move_down")):
+		motor_sfx.sound_on()
+
+
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(push.rotated(rotation))
 	apply_torque_impulse(direction_rotation * power_rotation)
