@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Laser" type="Area2D"]
-scale = Vector2( 0.6, 0.6 )
+modulate = Color( 0, 1.48627, 2, 1 )
+scale = Vector2( 0.5, 1 )
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
