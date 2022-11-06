@@ -27,8 +27,7 @@ onready var collider:CollisionShape2D = $CollisionShape2D
 # METODOS
 func _ready() -> void:
 	controller_state(state_actual)
-	# TODO: Quitar, solo DBUG
-	#controller_state(STATE.LIFE)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_input_active():
@@ -73,6 +72,7 @@ func controller_state(new_state: int) -> void:
 		STATE.DEAD:
 			collider.set_deferred("disabled", true)
 			muzzle.set_can_shot(true)
+			Events.emit_signal("ship_destroyed", global_position, 3)
 			queue_free()
 		_:
 			printerr("Error de Estado")
@@ -106,6 +106,9 @@ func player_input() -> void:
 		muzzle.set_is_shoting(true)
 	if Input.is_action_just_released("shot_main"):
 		muzzle.set_is_shoting(false)
+
+func destroy() -> void:
+	controller_state(STATE.DEAD)
 
 
 #SEÑALES INTERNAS
