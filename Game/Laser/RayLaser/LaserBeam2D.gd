@@ -1,6 +1,7 @@
 # Casts a laser along a raycast, emitting particles on the impact point.
 # Use `is_casting` to make the laser fire and stop.
 # You can attach it to a weapon or a ship; the laser will rotate with its parent.
+
 # RAYO LASER
 class_name LaserBeam2D
 extends RayCast2D
@@ -16,6 +17,7 @@ export var growth_time := 0.1
 # It plays appearing and disappearing animations when it's not animating.
 # See `appear()` and `disappear()` for more information.
 var is_casting := false setget set_is_casting
+var radio_damage:float = 8.0
 
 onready var fill := $FillLine2D
 onready var tween := $Tween
@@ -32,7 +34,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
-	cast_beam()
+	cast_beam(delta)
 
 
 func set_is_casting(cast: bool) -> void:
@@ -55,7 +57,7 @@ func set_is_casting(cast: bool) -> void:
 
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
-func cast_beam() -> void:
+func cast_beam(delta: float) -> void:
 	var cast_point := cast_to
 
 	force_raycast_update()
@@ -65,6 +67,8 @@ func cast_beam() -> void:
 		cast_point = to_local(get_collision_point())
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
+		if get_collider().has_method("take_damage"):
+			get_collider().take_damage(radio_damage * delta)
 
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5

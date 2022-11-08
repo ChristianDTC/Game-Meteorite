@@ -9,6 +9,7 @@ enum STATE {SPAWN, LIFE, INVENCIBLE, DEAD}
 export var power_engine:int = 20 #potencia del motor
 export var power_rotation:int = 280 #potencia de rotación
 export var trail_max:int = 30 #estela máxima
+export var hit_points:float = 15.0 # cantidad de vida
 
 # ATRIBUTOS
 var state_actual:int = STATE.SPAWN
@@ -23,6 +24,7 @@ onready var laser_beam:LaserBeam2D = $LaserBeam2D
 onready var trail:Trail = $TrainPoint/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var collider:CollisionShape2D = $CollisionShape2D
+onready var impact_sfx:AudioStreamPlayer = $ImpactSFX
 
 # METODOS
 func _ready() -> void:
@@ -110,6 +112,11 @@ func player_input() -> void:
 func destroy() -> void:
 	controller_state(STATE.DEAD)
 
+func take_damage(damage: float) -> void:
+	hit_points -= damage
+	if hit_points <= 0.0:
+		destroy()
+	impact_sfx.play()
 
 #SEÑALES INTERNAS
 func _on_AnimationPlayer_animation_finished(anim_name: String) ->void:
